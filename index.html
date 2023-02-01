@@ -1,0 +1,46 @@
+<html><head>
+      <title>Tube Jumpers</title>
+    <link rel="shortcut icon" type="image/jpg" href="tube-jumpers.png">
+  <script id="eq-discover-mathjax-check" src="chrome-extension://hjngolefdpdnooamgdldlkjgmdcmcjnc/content/mathJaxBundle.js"></script></head>
+<body onload="focus()">
+<style>
+html, body{
+width: 100%;
+height: 100%;
+}
+</style>
+<script src="load.js"></script> 
+<br>
+<div id="servers">
+<button style="font-size: 1em;" onclick="s1()">Server 1</button><button style="font-size: 1em;" onclick="s2()">Server 2</button></div>
+
+<h3>Playing On Server: <span id="currentServer">2</span></h3>
+
+<iframe style="height: 95vh; width: 95vw;" frameborder="0" id="518929564" allowtransparency="true" src="/zjumpers.html"></iframe>
+<br>
+<script>
+document.getElementById('518929564').src='tube-jumpers/index.html';
+document.getElementById('currentServer').innerHTML = '1';
+
+const links = ['tube-jumpers/index.html', 
+
+'/zjumpers.html'];
+
+links.forEach(server);
+
+function server(item, index) {
+window[("s"+(index+1))] = function(){
+document.getElementById('518929564').src= item;
+document.getElementById('currentServer').innerHTML = (index+1);
+document.getElementById('518929564').focus();
+ }
+document.getElementById('servers').innerHTML += "<button style='font-size: 1em;' onclick="+("s"+(index+1))+"()>Server "+(index+1)+"</button>";
+}
+</script>
+<script src="fullScreen.js"></script>
+<script>
+function focus() {document.getElementById('518929564').focus();}
+</script>
+
+
+</body></html>
